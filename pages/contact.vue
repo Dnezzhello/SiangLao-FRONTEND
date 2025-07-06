@@ -3,11 +3,10 @@
       <!-- Title Section -->
       <div class="text-center mb-10">
         <h2 class="text-3xl sm:text-5xl font-bold text-blue-900 mb-4 tracking-tight">
-          <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Contact</span>
-          Us
+          <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{{ getContactContent.title1 }}</span>{{ getContactContent.title2 }}
         </h2>
         <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          We're here to help! Reach out to us with any questions, feedback, or concerns. We'll get back to you as soon as possible.
+          {{ getContactContent.subtitle }}
         </p>
       </div>
   
@@ -19,56 +18,56 @@
           <form v-if="!showConfirmation" @submit.prevent="submitForm" class="space-y-6">
             <div>
               <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">
-                Name
+                {{ getContactContent.fullName }}
               </label>
               <input
                 v-model="form.name"
                 type="text"
                 id="name"
                 required
-                placeholder="Your name"
+                placeholder="ຊື່ເຕັມຂອງທ່ານ"
                 class="w-full px-4 py-3 border border-slate-300/80 rounded-xl bg-white/60 text-slate-900 placeholder-slate-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 focus:bg-white/90"
               />
             </div>
             
             <div>
               <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">
-                Email
+                {{ getContactContent.email }}
               </label>
               <input
                 v-model="form.email"
                 type="email"
                 id="email"
                 required
-                placeholder="Your email address"
+                placeholder="abc@xyz.com"
                 class="w-full px-4 py-3 border border-slate-300/80 rounded-xl bg-white/60 text-slate-900 placeholder-slate-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 focus:bg-white/90"
               />
             </div>
             
             <div>
               <label for="subject" class="block text-sm font-semibold text-slate-700 mb-2">
-                Subject
+                {{ getContactContent.topic }}
               </label>
               <input
                 v-model="form.subject"
                 type="text"
                 id="subject"
                 required
-                placeholder="Message subject"
+                placeholder="ຫົວຂໍ້ຂອງທ່ານ"
                 class="w-full px-4 py-3 border border-slate-300/80 rounded-xl bg-white/60 text-slate-900 placeholder-slate-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 focus:bg-white/90"
               />
             </div>
             
             <div>
               <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">
-                Message
+                {{ getContactContent.message }}
               </label>
               <textarea
                 v-model="form.message"
                 id="message"
                 required
                 rows="4"
-                placeholder="Your message"
+                placeholder="ຂໍ້ຄວາມຂອງທ່ານ"
                 class="w-full px-4 py-3 border border-slate-300/80 rounded-xl bg-white/60 text-slate-900 placeholder-slate-500 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 focus:bg-white/90 resize-none"
               ></textarea>
             </div>
@@ -80,7 +79,7 @@
             >
               <Icon v-if="isSubmitting" name="mdi:loading" class="w-5 h-5 animate-spin" />
               <Icon v-else name="mdi:send" class="w-5 h-5" />
-              <span>{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
+              <span>{{ isSubmitting ? 'ກຳລັງສົ່ງ...' :  getContactContent.submitButton }}</span>
             </button>
           </form>
   
@@ -90,16 +89,16 @@
               <Icon name="mdi:check-circle" class="w-10 h-10 text-green-600" />
             </div>
             <h3 class="text-xl font-bold text-blue-900 mb-2">
-              Thank you for your message!
+              ຂອບໃຈສໍາລັບຂໍ້ຄວາມຂອງທ່ານ!
             </h3>
             <p class="text-slate-600 mb-6">
-              We'll get back to you shortly.
+              ພວກເຮົາຈະຕິດຕໍ່ກັບທ່ານໂດຍໄວທີ່ສຸດ
             </p>
             <button
               @click="resetForm"
               class="px-6 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-lg font-medium transition-all duration-200"
             >
-              Send Another Message
+              ສົ່ງຂໍ້ຄວາມອີກ
             </button>
           </div>
         </div>
@@ -109,7 +108,7 @@
           <!-- Map -->
           <div class="bg-white/70 backdrop-blur-lg rounded-xl border border-slate-200/60 shadow-lg p-6 sm:p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl">
             <h3 class="text-xl font-bold text-blue-900 mb-5">
-              Our Location
+              {{ getContactContent.mapTitle }}
             </h3>
             <div class="w-full h-48 sm:h-64 bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden border border-slate-200/60 flex items-center justify-center">
               <div class="text-center">
@@ -122,51 +121,57 @@
           
           <!-- Contact Details -->
           <div class="bg-white/70 backdrop-blur-lg rounded-xl border border-slate-200/60 shadow-lg p-6 sm:p-8 transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-5">
-              Contact Details
+            <h3 class="text-xl font-bold text-blue-900 mb-6">
+              {{ getContactContent.contactInfo.title }}
             </h3>
-            <div class="space-y-4">
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div class="space-y-5">
+              <!-- Address -->
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="mdi:map-marker" class="w-5 h-5 text-blue-600" />
                 </div>
-                <div>
-                  <p class="text-slate-700 font-medium">Address</p>
-                  <p class="text-slate-600 text-sm">123 Main Street, Vientiane, Laos</p>
+                <div class="flex-1">
+                  <p class="text-slate-700 font-medium leading-relaxed">
+                    {{ getContactContent.contactInfo.address }}
+                  </p>
                 </div>
               </div>
               
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <!-- Phone -->
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="mdi:phone" class="w-5 h-5 text-blue-600" />
                 </div>
-                <div>
-                  <p class="text-slate-700 font-medium">Phone</p>
-                  <a href="tel:+85621123456" class="text-slate-600 text-sm hover:text-blue-600 transition-colors">
-                    +856 21 123 456
+                <div class="flex-1">
+                  <a href="tel:{{ getContactContent.contactInfo.phone }}" 
+                     class="text-slate-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                    {{ getContactContent.contactInfo.phone }}
                   </a>
                 </div>
               </div>
               
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <!-- Email -->
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="mdi:email" class="w-5 h-5 text-blue-600" />
                 </div>
-                <div>
-                  <p class="text-slate-700 font-medium">Email</p>
-                  <a href="mailto:info@sianglao.com" class="text-slate-600 text-sm hover:text-blue-600 transition-colors">
-                    info@sianglao.com
+                <div class="flex-1">
+                  <a href="mailto:{{ getContactContent.contactInfo.email }}" 
+                     class="text-slate-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                    {{ getContactContent.contactInfo.email }}
                   </a>
                 </div>
               </div>
               
-              <div class="flex items-start gap-3">
-                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+              <!-- Office Hours -->
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name="mdi:clock-outline" class="w-5 h-5 text-blue-600" />
                 </div>
-                <div>
-                  <p class="text-slate-700 font-medium">Office Hours</p>
-                  <p class="text-slate-600 text-sm">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <div class="flex-1">
+                  <p class="text-slate-600 leading-relaxed">
+                    {{ getContactContent.contactInfo.officeTime }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -178,17 +183,15 @@
   
   <script setup>
   import { ref, reactive } from 'vue'
+  import { useContentStore } from '~/stores/content'
   
   // Set page meta
   useHead({
-    title: 'Contact Us - SiangLao',
-    meta: [
-      {
-        name: 'description',
-        content: 'Get in touch with the SiangLao team. We\'re here to help with any questions about our Lao voice-to-text technology.'
-      }
-    ]
+    title: 'ຕິດຕໍ່ພວກເຮົາ - SiangLao',
   })
+
+  const contentStore = useContentStore();
+  const getContactContent = computed(() => contentStore.getContactContent);
   
   // Form state
   const form = reactive({

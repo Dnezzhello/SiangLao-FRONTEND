@@ -56,6 +56,24 @@ export const useContentStore = defineStore("content", {
         role: "ນັກສຶກສາ",
       },
     },
+    contact: {
+      title1: "ຕິດຕໍ່ຫາ",
+      title2: "ພວກເຮົາ",
+      subtitle: "ພວກເຮົາຍິນດີຊ່ວຍເຫຼືອທ່ານ! ກະລຸນາຕິດຕໍ່ຫາພວກເຮົາ ຫາກທ່ານມີຄຳຖາມ, ຄຳຕິຊົມ ຫຼື ຂໍ້ຂ້ອງໃຈໃດໆ. ພວກເຮົາຈະຕິດຕໍ່ກັບຫາທ່ານໂດຍໄວທີ່ສຸດ",
+      fullName: "ຊື່ ແລະ ນາມສະກຸນ",
+      email: "ອີເມວ",
+      topic: "ຫົວຂໍ້",
+      message: "ຂໍ້ຄວາມ",
+      submitButton: "ສົ່ງອີເມວ",
+      mapTitle: "ທີ່ຕັ້ງຂອງສະຖາບັນ",
+      contactInfo: {
+        title: "ລາຍລະອຽດການຕິດຕໍ່",
+        officeTime: "ວັນຈັນ - ວັນສຸກ: 8:00 AM - 4:00 PM",
+        phone: "+856 21 123 456",
+        email: "sianglao@nuol.edu.la",
+        address: "ມຊ ທີ່ບ້ານດົງໂດກ ເມືອງໄຊທານີ ແຂວງນະຄອນຫຼວງວຽງຈັນ",
+      }
+    },
 
     // Error messages
     errors: {
@@ -86,6 +104,8 @@ export const useContentStore = defineStore("content", {
     getTranscriptionContent: (state) => state.transcription,
 
     getAboutContent: (state) => state.about,
+
+    getContactContent: (state) => state.contact,
 
     getErrorContent: (state) => (type) => state.errors[type],
   },
