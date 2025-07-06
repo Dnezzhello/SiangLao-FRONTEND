@@ -16,6 +16,13 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   modules: ["@nuxt/fonts", "@nuxt/icon", "@pinia/nuxt"],
+  icon: {
+    provider: 'iconify',
+    collections: ['mdi'],
+    serverBundle: {
+      collections: ['mdi']
+    }
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
