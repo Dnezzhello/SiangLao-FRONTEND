@@ -132,8 +132,20 @@ export const useTranscriptionStore = defineStore("transcription", {
       this.recordedTime = 0;
       this.clearErrors();
 
-      // Create MediaRecorder
-      const options = { mimeType: "audio/webm;codecs=opus" };
+      // Create MediaRecorder with fallback options
+      let options;
+      if (MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) {
+        options = { mimeType: "audio/webm;codecs=opus" };
+      } else if (MediaRecorder.isTypeSupported("audio/webm")) {
+        options = { mimeType: "audio/webm" };
+      } else if (MediaRecorder.isTypeSupported("audio/mp4")) {
+        options = { mimeType: "audio/mp4" };
+      } else {
+        // Use default (no options)
+        options = {};
+      }
+      
+      console.log("Using MediaRecorder with:", options.mimeType || "default codec");
       this.mediaRecorder = new MediaRecorder(stream, options);
 
       const audioChunks = [];
@@ -147,7 +159,8 @@ export const useTranscriptionStore = defineStore("transcription", {
       this.mediaRecorder.onstop = () => {
         // Only complete recording if it wasn't cancelled
         if (!this.recordingCancelled) {
-          const audioBlob = new Blob(audioChunks, { type: "audio/webm" });
+          const mimeType = options.mimeType || "audio/webm";
+          const audioBlob = new Blob(audioChunks, { type: mimeType });
           this.completeRecording(audioBlob);
         }
 

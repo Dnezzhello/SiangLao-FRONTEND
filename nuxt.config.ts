@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: false },
+  devServer: {
+    https: true
+  },
   app: {
     head: {
       title: "SiangLao - Lao Speech to Text",
