@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
@@ -20,4 +20,4 @@ ENV NODE_ENV=production
 ENV BACKEND_URL=https://sianglao-backend-production.up.railway.app
 
 # Start production server
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+CMD ["node", ".output/server/index.mjs"]

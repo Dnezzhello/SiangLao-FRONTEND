@@ -13,7 +13,7 @@ export const API_CONFIG = {
   },
   
   // Request configuration
-  timeout: 30000, // 30 seconds
+  timeout: 200000, // 200 seconds
   retries: 3,
   retryDelay: 1000, // 1 second
   
