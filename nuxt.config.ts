@@ -29,13 +29,18 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  // Add proxy configuration for development
-  // nitro: {
-  //   devProxy: {
-  //     '/api': {
-  //       target: 'http://localhost:5000',
-  //       changeOrigin: true
-  //     }
-  //   }
-  // }
+  runtimeConfig: {
+    public: {
+      backendUrl: process.env.BACKEND_URL || 'https://sianglao-backend-production.up.railway.app'
+    }
+  },
+  // Proxy configuration for development
+  nitro: {
+    devProxy: {
+      '/api': {
+        target: process.env.BACKEND_URL || 'http://localhost:5005',
+        changeOrigin: true
+      }
+    }
+  }
 });

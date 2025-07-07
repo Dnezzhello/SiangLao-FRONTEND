@@ -9,11 +9,15 @@ RUN npm install
 # Copy source code
 COPY . .
 
+# Build the application
+RUN npm run build
+
 # Expose port
 EXPOSE 3000
 
-# Set environment for development
-ENV NODE_ENV=development
+# Set environment for production
+ENV NODE_ENV=production
+ENV BACKEND_URL=https://sianglao-backend-production.up.railway.app
 
-# Start dev server
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+# Start production server
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
