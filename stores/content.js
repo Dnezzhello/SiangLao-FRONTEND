@@ -55,6 +55,10 @@ export const useContentStore = defineStore("content", {
         name: "Sounme Chanthavong",
         role: "ນັກສຶກສາ",
       },
+      coAdvisor: {
+        name: "Thongsing Sivongsay MCS",
+        role: "ອາຈານຜູ້ຊ່ວຍທີ່ປຶກສາ",
+      },
     },
     contact: {
       title1: "ຕິດຕໍ່ຫາ",

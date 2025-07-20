@@ -61,8 +61,10 @@
                 </p>
             </div>
 
-            <!-- Team Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Team Grid - 2x2 Layout -->
+            <div class="space-y-8">
+                <!-- Teachers (Advisors) Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- Advisor -->
                 <div
                     class="flex flex-col items-center text-center bg-white/60 backdrop-blur-sm rounded-xl border border-slate-200/80 p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg shadow-sm">
@@ -76,7 +78,23 @@
                     <h4 class="text-lg font-bold text-blue-900 mb-1">{{ getAboutContent.advisor.name }}</h4>
                     <p class="text-sm text-blue-600 font-medium">{{ getAboutContent.advisor.role }}</p>
                 </div>
+                <!-- Co-Advisor -->
+                <div
+                    class="flex flex-col items-center text-center bg-white/60 backdrop-blur-sm rounded-xl border border-slate-200/80 p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg shadow-sm">
+                    <div
+                        class="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-blue-200/60 shadow-lg shadow-blue-500/15">
+                        <div
+                            class="w-full h-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                            <img src="/assets/images/co-advisor.png" alt="co-advisor" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h4 class="text-lg font-bold text-blue-900 mb-1">{{ getAboutContent.coAdvisor.name }}</h4>
+                    <p class="text-sm text-blue-600 font-medium">{{ getAboutContent.coAdvisor.role }}</p>
+                </div>
+                </div>
 
+                <!-- Students Row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <!-- First Student -->
                 <div
                     class="flex flex-col items-center text-center bg-white/60 backdrop-blur-sm rounded-xl border border-slate-200/80 p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg shadow-sm">
@@ -84,7 +102,7 @@
                         class="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-blue-200/60 shadow-lg shadow-blue-500/15">
                         <div
                             class="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                            <img src="/assets/images/student1.png" alt="advisor" class="w-full h-full object-cover">
+                            <img src="/assets/images/student1.png" alt="student1" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <h4 class="text-lg font-bold text-blue-900 mb-1">{{ getAboutContent.student1.name }}</h4>
@@ -98,11 +116,12 @@
                         class="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-blue-200/60 shadow-lg shadow-blue-500/15">
                         <div
                             class="w-full h-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-                            <img src="/assets/images/student2.png" alt="advisor" class="w-full h-full object-cover">
+                            <img src="/assets/images/student2.png" alt="student2" class="w-full h-full object-cover">
                         </div>
                     </div>
                     <h4 class="text-lg font-bold text-blue-900 mb-1">{{ getAboutContent.student2.name }}</h4>
                     <p class="text-sm text-blue-600 font-medium">{{ getAboutContent.student2.role }}</p>
+                </div>
                 </div>
             </div>
         </section>
