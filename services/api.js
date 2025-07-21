@@ -1,5 +1,13 @@
 // Simple API service for transcription
-const API_BASE = process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005'
+function getApiBase() {
+  if (import.meta.server) {
+    return process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005'
+  }
+  const config = useRuntimeConfig()
+  return config.public.backendUrl
+}
+
+const API_BASE = getApiBase()
 
 export const transcriptionApi = {
   async uploadFile(file) {

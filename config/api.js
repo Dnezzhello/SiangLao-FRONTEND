@@ -1,7 +1,15 @@
 // API Configuration
+function getApiBaseUrl() {
+  if (import.meta.server) {
+    return process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005'
+  }
+  const config = useRuntimeConfig()
+  return config.public.backendUrl
+}
+
 export const API_CONFIG = {
   // Base URL - can be overridden via environment variable
-  baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005',
+  baseUrl: getApiBaseUrl(),
   
   // Endpoints
   endpoints: {
