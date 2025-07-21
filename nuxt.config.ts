@@ -35,12 +35,12 @@ export default defineNuxtConfig({
     }
   },
   // Proxy configuration for development
-  nitro: {
-    devProxy: {
-      '/api': {
-        target: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005',
-        changeOrigin: true
-      }
-    }
-  }
+  // nitro: {
+  //   devProxy: {
+  //     '/api': {
+  //       target: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005',
+  //       changeOrigin: true
+  //     }
+  //   }
+  // }
 });
