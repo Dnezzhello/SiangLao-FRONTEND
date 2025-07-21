@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
   // Base URL - can be overridden via environment variable
-  baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || (process.env.NODE_ENV === 'production' ? 'https://sianglao-backend-production.up.railway.app' : 'http://localhost:5005'),
+  baseUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005',
   
   // Endpoints
   endpoints: {

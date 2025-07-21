@@ -1,5 +1,5 @@
 // Simple API service for transcription
-const API_BASE = process.env.NUXT_PUBLIC_BACKEND_URL || (process.env.NODE_ENV === 'production' ? 'https://sianglao-backend-production.up.railway.app' : 'http://localhost:5005')
+const API_BASE = process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005'
 
 export const transcriptionApi = {
   async uploadFile(file) {

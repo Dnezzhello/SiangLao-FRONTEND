@@ -17,7 +17,7 @@ EXPOSE 3000
 
 # Set environment for production
 ENV NODE_ENV=production
-ENV BACKEND_URL=https://sianglao-backend-production.up.railway.app
+# ENV NUXT_PUBLIC_BACKEND_URL will be set by your PaaS platform
 
 # Start production server
 CMD ["node", ".output/server/index.mjs"]

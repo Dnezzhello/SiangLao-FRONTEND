@@ -31,14 +31,14 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      backendUrl: process.env.BACKEND_URL || 'https://sianglao-backend-production.up.railway.app'
+      backendUrl: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005'
     }
   },
   // Proxy configuration for development
   nitro: {
     devProxy: {
       '/api': {
-        target: process.env.BACKEND_URL || 'http://localhost:5005',
+        target: process.env.NUXT_PUBLIC_BACKEND_URL || 'http://localhost:5005',
         changeOrigin: true
       }
     }
